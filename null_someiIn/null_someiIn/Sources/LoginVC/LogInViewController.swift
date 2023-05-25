@@ -68,15 +68,9 @@ class LogInViewController: BaseViewController, UITextFieldDelegate {
     }
     
     override func addView() {
-        view.addSubview(logInLabel)
-        view.addSubview(logInTitleLabel)
-        view.addSubview(idLabel)
-        view.addSubview(idTextFiled)
-        view.addSubview(pwLabel)
-        view.addSubview(pwTextFiled)
-        view.addSubview(checkLabel)
-        view.addSubview(goToSignUpLabel)
-        view.addSubview(logInButton)
+        [logInLabel, logInTitleLabel, idLabel, idTextFiled, pwLabel, pwTextFiled, checkLabel, goToSignUpLabel, logInButton].forEach {
+            view.addSubview($0)
+        }
     }
     
     override func addTarget() {

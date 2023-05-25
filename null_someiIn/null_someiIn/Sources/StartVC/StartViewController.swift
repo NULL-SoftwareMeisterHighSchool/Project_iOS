@@ -7,14 +7,9 @@ class StartViewController: BaseViewController {
         $0.backgroundColor = .lightGrayCustom
     }
     
-    private let frameView_2 = UILabel().then {
-        $0.frame = CGRect(x: 0, y: 0, width: 313, height: 616)
-        $0.backgroundColor = .lightGrayCustom
-    }
-    
     private let labelView = UILabel().then {
         $0.frame = CGRect(x: 0, y: 0, width: 199, height: 92)
-        $0.backgroundColor = .lightGrayCustom
+        $0.backgroundColor = .white
     }
     
     private let someiInLabel = UILabel().then {
@@ -49,13 +44,9 @@ class StartViewController: BaseViewController {
     }
 
     override func addView() {
-        view.addSubview(self.frameView)
-        view.addSubview(self.frameView_2)
-        view.addSubview(self.labelView)
-        view.addSubview(someiInLabel)
-        view.addSubview(someiInImage)
-        view.addSubview(logInButton)
-        view.addSubview(signUpButton)
+        [self.frameView, self.labelView, someiInLabel, someiInImage, logInButton, signUpButton].forEach {
+            view.addSubview($0)
+        }
     }
     
     override func addTarget() {
@@ -71,20 +62,13 @@ class StartViewController: BaseViewController {
             $0.bottom.equalTo(view).inset(236)
         }
         
-        self.frameView_2.snp.makeConstraints {
-            $0.centerX.equalTo(view)
-            $0.left.equalTo(view).offset(40)
-            $0.right.equalTo(view).offset(40)
-            $0.bottom.equalTo(view).inset(236)
-        }
-        
         self.labelView.snp.makeConstraints {
-            $0.centerX.equalTo(frameView)
+//            $0.centerX.equalToSuperview()
             $0.centerY.equalTo(frameView)
 //            $0.height.equalTo(92)
 //            $0.bottom.equalTo(view).inset(262)
-            $0.left.equalTo(view).offset(97)
-//            $0.right.equalTo(view).offset(97)
+            $0.left.equalTo(frameView).offset(40)
+            $0.right.equalTo(frameView).inset(40)
         }
         
         self.someiInLabel.snp.makeConstraints {
@@ -92,7 +76,7 @@ class StartViewController: BaseViewController {
             $0.centerY.equalTo(labelView)
             $0.width.equalTo(139)
             $0.height.equalTo(92)
-//            $0.left.equalTo(frameView_2).offset(57)
+            $0.left.equalTo(labelView).offset(0)
 //            $0.top.equalTo(view).offset(0)
         }
         

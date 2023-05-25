@@ -83,17 +83,9 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate {
     }
     
     override func addView() {
-        view.addSubview(signUpLabel)
-        view.addSubview(signUpTitleLabel)
-        view.addSubview(shcoolLabel)
-        view.addSubview(shcoolTextFiled)
-        view.addSubview(emailLabel)
-        view.addSubview(emailTextFiled)
-        view.addSubview(amLabel)
-        view.addSubview(amTextFiled)
-        view.addSubview(checkLabel)
-        view.addSubview(goToLogInLabel)
-        view.addSubview(nextButton)
+        [signUpLabel, signUpTitleLabel, shcoolLabel, shcoolTextFiled, emailLabel, emailTextFiled, amLabel, amTextFiled, checkLabel, goToLogInLabel, nextButton].forEach {
+            view.addSubview($0)
+        }
     }
     
     override func setLayout() {
