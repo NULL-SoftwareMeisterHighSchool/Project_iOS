@@ -8,8 +8,8 @@ class StartViewController: BaseViewController {
     }
     
     private let labelView = UILabel().then {
-        $0.frame = CGRect(x: 0, y: 0, width: 199, height: 92)
-        $0.backgroundColor = .white
+//        $0.frame = CGRect(x: 0, y: 0, width: 199, height: 92)
+        $0.backgroundColor = .lightGrayCustom
     }
     
     private let someiInLabel = UILabel().then {
@@ -63,21 +63,18 @@ class StartViewController: BaseViewController {
         }
         
         self.labelView.snp.makeConstraints {
-//            $0.centerX.equalToSuperview()
+            $0.centerX.equalToSuperview()
             $0.centerY.equalTo(frameView)
-//            $0.height.equalTo(92)
-//            $0.bottom.equalTo(view).inset(262)
-            $0.left.equalTo(frameView).offset(40)
-            $0.right.equalTo(frameView).inset(40)
+            $0.width.equalTo(199)
+            $0.height.equalTo(92)
         }
         
         self.someiInLabel.snp.makeConstraints {
-//            $0.centerX.equalTo(labelView)
+            $0.centerX.equalTo(labelView)
             $0.centerY.equalTo(labelView)
             $0.width.equalTo(139)
             $0.height.equalTo(92)
             $0.left.equalTo(labelView).offset(0)
-//            $0.top.equalTo(view).offset(0)
         }
         
         self.someiInImage.snp.makeConstraints {
