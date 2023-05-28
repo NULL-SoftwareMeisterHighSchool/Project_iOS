@@ -160,8 +160,41 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate {
         }
     }
     
-    override func addTarget() {
-        nextButton.addTarget(self, action: #selector(goToMain), for: .touchUpInside)
+    @objc func siginUpButtonTapped() {
+        // 유효성 검사를 수행합니다.
+        if validateFields() {
+            // 로그인 성공 시 수행할 작업을 여기에 추가합니다.
+            // 예: 서버 요청, 화면 전환 등
+            TabBarViewController()
+        } else {
+            // 유효성 검사에 실패한 경우 알림을 표시하거나 작업을 수행합니다.
+            emptyField()
+        }
+    }
+    
+    private func emptyField(){
+        let completed = UIAlertController(title: "입력되지않은 칸이 있습니다", message: "빈 칸이 없도록 기입해주세요", preferredStyle: .alert)
+        completed.addAction(UIAlertAction(title: "확인", style: .default){_ in
+        })
+        present(completed, animated: true, completion: nil)
+    }
+    
+    func validateFields() -> Bool {
+        // 사용자명과 비밀번호 필드의 값을 가져옵니다.
+        guard let shcool = shcoolTextFiled.text, let email = emailTextFiled.text, let am = amTextFiled.text else {
+            return false
+        }
+
+        // 사용자명과 비밀번호가 비어 있는지 확인합니다.
+        if shcool.isEmpty || email.isEmpty || am.isEmpty {
+            // 필수 필드가 비어 있는 경우에는 실패로 처리합니다.
+            return false
+        }
+
+        // 추가적인 유효성 검사 규칙을 적용할 수 있습니다.
+        // 예: 비밀번호의 최소 길이, 사용자명의 패턴 등
+        // 유효성 검사를 통과한 경우에는 성공으로 처리합니다.
+        return true
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -172,6 +205,10 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate {
         goToLogInLabel.addGestureRecognizer(tapGesture) // UITapGestureRecognizer 추가
     }
     
+    override func addTarget() {
+        nextButton.addTarget(self, action: #selector(goToMain), for: .touchUpInside)
+    }
+
     @objc private func goToLogIn() {
         let controller = LogInViewController()
         navigationController?.pushViewController(controller, animated: true)
@@ -179,7 +216,8 @@ class SignUpViewController: BaseViewController, UITextFieldDelegate {
     }
     
     @objc private func goToMain() {
-        let controller = MainViewController()
+        siginUpButtonTapped()
+        let controller = TabBarViewController()
         navigationController?.pushViewController(controller, animated: true)
         navigationController?.navigationBar.isHidden = true
     }
