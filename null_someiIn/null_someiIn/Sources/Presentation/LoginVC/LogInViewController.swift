@@ -170,7 +170,7 @@ class LogInViewController: BaseViewController, UITextFieldDelegate {
         // 추가적인 유효성 검사 규칙을 적용할 수 있습니다.
         // 예: 비밀번호의 최소 길이, 사용자명의 패턴 등
         // 유효성 검사를 통과한 경우에는 성공으로 처리합니다.
-        
+//        let regex = "^$"
         
         return true
     }
