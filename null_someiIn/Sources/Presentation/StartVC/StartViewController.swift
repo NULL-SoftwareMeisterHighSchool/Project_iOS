@@ -8,7 +8,7 @@ class StartViewController: BaseViewController {
     }
     
     private let labelView = UIView().then {
-        $0.backgroundColor = .red
+        $0.backgroundColor = .lightGrayCustom
     }
     
     private let someiInLabel = UILabel().then {
