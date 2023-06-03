@@ -1,6 +1,6 @@
 import UIKit
 
-class MainViewController: BaseViewController {
+class HomeViewController: BaseViewController {
     
     private let labelView = UIView().then {
         $0.backgroundColor = .white

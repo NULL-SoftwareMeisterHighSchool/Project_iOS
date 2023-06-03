@@ -21,7 +21,7 @@
 		9B8D3E6B2A06536B00C378EF /* Pretendard-SemiBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B8D3E682A06536B00C378EF /* Pretendard-SemiBold.otf */; };
 		9B8D3E6D2A06536B00C378EF /* Pretendard-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B8D3E6A2A06536B00C378EF /* Pretendard-Medium.otf */; };
 		9B8D3E6F2A0A6EA100C378EF /* Pretendard-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 9B8D3E6E2A0A6EA100C378EF /* Pretendard-Regular.otf */; };
-		9B8D3E752A0B6FF800C378EF /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8D3E742A0B6FF800C378EF /* MainViewController.swift */; };
+		9B8D3E752A0B6FF800C378EF /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8D3E742A0B6FF800C378EF /* HomeViewController.swift */; };
 		9B8D3E7E2A18D32A00C378EF /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8D3E7D2A18D32A00C378EF /* UserViewController.swift */; };
 		9B8D3E812A1B8AB200C378EF /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8D3E802A1B8AB200C378EF /* TabBarViewController.swift */; };
 		9B8D3E842A1B900400C378EF /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8D3E832A1B900400C378EF /* RankViewController.swift */; };
@@ -43,7 +43,7 @@
 		9B8D3E682A06536B00C378EF /* Pretendard-SemiBold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-SemiBold.otf"; sourceTree = "<group>"; };
 		9B8D3E6A2A06536B00C378EF /* Pretendard-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Medium.otf"; sourceTree = "<group>"; };
 		9B8D3E6E2A0A6EA100C378EF /* Pretendard-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Pretendard-Regular.otf"; sourceTree = "<group>"; };
-		9B8D3E742A0B6FF800C378EF /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		9B8D3E742A0B6FF800C378EF /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		9B8D3E7D2A18D32A00C378EF /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
 		9B8D3E802A1B8AB200C378EF /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		9B8D3E832A1B900400C378EF /* RankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
@@ -161,12 +161,12 @@
 			path = Font;
 			sourceTree = "<group>";
 		};
-		9B8D3E732A0B6FD200C378EF /* MainVC */ = {
+		9B8D3E732A0B6FD200C378EF /* HomeVC */ = {
 			isa = PBXGroup;
 			children = (
-				9B8D3E742A0B6FF800C378EF /* MainViewController.swift */,
+				9B8D3E742A0B6FF800C378EF /* HomeViewController.swift */,
 			);
-			path = MainVC;
+			path = HomeVC;
 			sourceTree = "<group>";
 		};
 		9B8D3E792A18D2CB00C378EF /* MyPageVC */ = {
@@ -211,7 +211,7 @@
 				9B8D3E822A1B8FF900C378EF /* RankVC */,
 				9B8D3E7F2A1B823300C378EF /* TabBarVC */,
 				9B8D3E792A18D2CB00C378EF /* MyPageVC */,
-				9B8D3E732A0B6FD200C378EF /* MainVC */,
+				9B8D3E732A0B6FD200C378EF /* HomeVC */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -308,7 +308,7 @@
 				9B8D3E4429FECF4B00C378EF /* LogInViewController.swift in Sources */,
 				9B8D3E2629FEC11000C378EF /* SceneDelegate.swift in Sources */,
 				9B8D3E812A1B8AB200C378EF /* TabBarViewController.swift in Sources */,
-				9B8D3E752A0B6FF800C378EF /* MainViewController.swift in Sources */,
+				9B8D3E752A0B6FF800C378EF /* HomeViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
