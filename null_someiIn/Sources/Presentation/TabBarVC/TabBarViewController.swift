@@ -2,7 +2,7 @@ import UIKit
 
 class TabBarViewController: UITabBarController {
     
-    private let mainVC = MainViewController().then{
+    private let mainVC = HomeViewController().then{
         $0.title = ""
         $0.tabBarItem.image = UIImage(systemName: "square.grid.2x2.fill")
         $0.navigationItem.largeTitleDisplayMode = .always

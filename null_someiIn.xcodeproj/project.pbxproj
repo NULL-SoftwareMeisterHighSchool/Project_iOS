@@ -26,6 +26,9 @@
 		9B8D3E812A1B8AB200C378EF /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8D3E802A1B8AB200C378EF /* TabBarViewController.swift */; };
 		9B8D3E842A1B900400C378EF /* RankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8D3E832A1B900400C378EF /* RankViewController.swift */; };
 		9B8D3E872A1BAD4500C378EF /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B8D3E862A1BAD4500C378EF /* ListViewController.swift */; };
+		9BC6BF732A2BB40900AE73E8 /* UITextField+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC6BF722A2BB40900AE73E8 /* UITextField+Extension.swift */; };
+		9BC6BF752A2BB47B00AE73E8 /* UIViewController+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC6BF742A2BB47B00AE73E8 /* UIViewController+Extension.swift */; };
+		9BC6BFA12A31BEC600AE73E8 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9BC6BFA02A31BEC600AE73E8 /* UILabel+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +51,9 @@
 		9B8D3E802A1B8AB200C378EF /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
 		9B8D3E832A1B900400C378EF /* RankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RankViewController.swift; sourceTree = "<group>"; };
 		9B8D3E862A1BAD4500C378EF /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
+		9BC6BF722A2BB40900AE73E8 /* UITextField+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+Extension.swift"; sourceTree = "<group>"; };
+		9BC6BF742A2BB47B00AE73E8 /* UIViewController+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Extension.swift"; sourceTree = "<group>"; };
+		9BC6BFA02A31BEC600AE73E8 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,8 +89,6 @@
 			isa = PBXGroup;
 			children = (
 				9B8D3E4029FECEC700C378EF /* Sources */,
-				9B8D3E2329FEC11000C378EF /* AppDelegate.swift */,
-				9B8D3E2529FEC11000C378EF /* SceneDelegate.swift */,
 				9B8D3E2C29FEC11000C378EF /* Assets.xcassets */,
 				9B8D3E2E29FEC11000C378EF /* LaunchScreen.storyboard */,
 				9B8D3E3129FEC11000C378EF /* Info.plist */,
@@ -103,6 +107,7 @@
 		9B8D3E4029FECEC700C378EF /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				9BC6BF762A2E094700AE73E8 /* App */,
 				9B8D3E882A1F805C00C378EF /* Presentation */,
 				9B8D3E4829FED54900C378EF /* Utility */,
 			);
@@ -137,18 +142,21 @@
 			isa = PBXGroup;
 			children = (
 				9B8D3E672A06534600C378EF /* Font */,
-				9B8D3E4929FED55300C378EF /* UIColor+Extension */,
+				9B8D3E4929FED55300C378EF /* Extension */,
 				9B8D3E3F29FECEBE00C378EF /* Base */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
 		};
-		9B8D3E4929FED55300C378EF /* UIColor+Extension */ = {
+		9B8D3E4929FED55300C378EF /* Extension */ = {
 			isa = PBXGroup;
 			children = (
 				9B8D3E4A29FED56B00C378EF /* UIColor+Extension.swift */,
+				9BC6BF722A2BB40900AE73E8 /* UITextField+Extension.swift */,
+				9BC6BF742A2BB47B00AE73E8 /* UIViewController+Extension.swift */,
+				9BC6BFA02A31BEC600AE73E8 /* UILabel+Extension.swift */,
 			);
-			path = "UIColor+Extension";
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		9B8D3E672A06534600C378EF /* Font */ = {
@@ -214,6 +222,15 @@
 				9B8D3E732A0B6FD200C378EF /* HomeVC */,
 			);
 			path = Presentation;
+			sourceTree = "<group>";
+		};
+		9BC6BF762A2E094700AE73E8 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				9B8D3E2329FEC11000C378EF /* AppDelegate.swift */,
+				9B8D3E2529FEC11000C378EF /* SceneDelegate.swift */,
+			);
+			path = App;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -299,13 +316,16 @@
 			files = (
 				9B8D3E4B29FED56B00C378EF /* UIColor+Extension.swift in Sources */,
 				9B8D3E842A1B900400C378EF /* RankViewController.swift in Sources */,
+				9BC6BFA12A31BEC600AE73E8 /* UILabel+Extension.swift in Sources */,
 				9B8D3E872A1BAD4500C378EF /* ListViewController.swift in Sources */,
 				9B8D3E4729FECF6F00C378EF /* SignUpViewController.swift in Sources */,
+				9BC6BF752A2BB47B00AE73E8 /* UIViewController+Extension.swift in Sources */,
 				9B8D3E2829FEC11000C378EF /* StartViewController.swift in Sources */,
 				9B8D3E3829FEC1CA00C378EF /* BaseViewController.swift in Sources */,
 				9B8D3E2429FEC11000C378EF /* AppDelegate.swift in Sources */,
 				9B8D3E7E2A18D32A00C378EF /* UserViewController.swift in Sources */,
 				9B8D3E4429FECF4B00C378EF /* LogInViewController.swift in Sources */,
+				9BC6BF732A2BB40900AE73E8 /* UITextField+Extension.swift in Sources */,
 				9B8D3E2629FEC11000C378EF /* SceneDelegate.swift in Sources */,
 				9B8D3E812A1B8AB200C378EF /* TabBarViewController.swift in Sources */,
 				9B8D3E752A0B6FF800C378EF /* HomeViewController.swift in Sources */,

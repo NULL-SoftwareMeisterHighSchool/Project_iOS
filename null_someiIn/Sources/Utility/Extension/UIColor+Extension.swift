@@ -19,25 +19,10 @@ extension UIColor {
         blue: 0.918,
         alpha: 1
     )
-}
-
-extension UITextField {
-  func addLeftPadding() {
-    let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: 14, height: self.frame.height))
-    self.leftView = paddingView
-    self.leftViewMode = ViewMode.always
-  }
-}
-
-// 키보드 숨기기
-extension UIViewController {
-    func hideKeyboardWhenTappedAround() {
-        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
-        tap.cancelsTouchesInView = false
-        view.addGestureRecognizer(tap)
-    }
-    
-    @objc func dismissKeyboard() {
-        view.endEditing(true)
-    }
+    static let darkGrayCustom = UIColor (
+        red: 0.478,
+        green: 0.506,
+        blue: 0.518,
+        alpha: 1
+    )
 }

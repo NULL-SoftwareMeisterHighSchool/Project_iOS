@@ -1,8 +1,14 @@
-//
-//  UIViewController+Extension.swift
-//  null_someiIn
-//
-//  Created by 김주은 on 2023/06/04.
-//
+import UIKit
 
-import Foundation
+// 키보드 숨기기
+extension UIViewController {
+    func hideKeyboardWhenTappedAround() {
+        let tap = UITapGestureRecognizer(target: self, action: #selector(UIViewController.dismissKeyboard))
+        tap.cancelsTouchesInView = false
+        view.addGestureRecognizer(tap)
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
+    }
+}
