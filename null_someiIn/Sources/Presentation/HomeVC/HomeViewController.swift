@@ -124,6 +124,14 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
         $0.layer.cornerRadius = 16
     }
     
+    private lazy var postScrollView: UIScrollView = {
+        let scrollView = UIScrollView().then {
+            $0.translatesAutoresizingMaskIntoConstraints = false
+        }
+        return scrollView
+    }()
+
+    
     private let postLabel = UILabel().then {
         $0.text = "인기 게시글"
         $0.font = UIFont(name: "Pretendard-SemiBold", size: 20)
@@ -149,11 +157,7 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "Cell")
         view.addSubview(tableView)
                 
-        // Apply constraints using SnapKit
-        tableView.snp.makeConstraints { make in
-            make.top.equalTo(githubstatsView2.snp.bottom).offset(12)
-            make.left.right.equalTo(view).offset(20)
-        }
+        
     }
     
     private func configure() {
@@ -178,9 +182,11 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
             githubstatsView2.addSubview($0)
         }
         
-        [postLabel, chevronImage].forEach {
-            postView.addSubview($0)
+        [postLabel, chevronImage, tableView].forEach {
+            postScrollView.addSubview($0)
         }
+        
+        postView.addSubview(postScrollView)
     }
     
     override func setLayout() {
@@ -309,6 +315,16 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
             $0.left.equalTo(view).offset(20)
             $0.right.equalTo(view).inset(20)
             $0.top.equalTo(githubstatsView2.snp.bottom).offset(12)
+        }
+        
+        postScrollView.snp.makeConstraints {
+            $0.edges.equalTo(postView)
+        }
+        
+        tableView.snp.makeConstraints { make in
+            make.top.equalTo(postLabel.snp.bottom).offset(20)
+            make.left.right.equalTo(postView)
+            make.height.equalTo(419) // 적절한 높이로 변경해주세요
         }
         
         postLabel.snp.makeConstraints {
