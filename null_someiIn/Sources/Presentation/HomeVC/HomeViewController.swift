@@ -32,17 +32,65 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     }
     
     private let profileImg = UIImageView().then {
-        $0.image = UIImage(systemName: "person.circle.fill")
-//        $0.foregroundColor = UIColor(bl)
+        $0.image = UIImage(named: "duck")
+        $0.frame = CGRect(x: 0, y: 0, width: 48, height: 48)
+        $0.layer.cornerRadius = $0.frame.width / 2  // 프레임을 원으로 만들기
+        $0.clipsToBounds = true
     }
     
     private let nameLabel = UILabel().then {
         $0.text = "김소마"
-        
+        $0.textColor = .black
+        $0.font = UIFont(name: "Pretendard-SemiBold", size: 16)
     }
+
+    private let levelLabel = UILabel().then {
+        $0.text = "A+"
+        $0.textColor = .blueCustom
+        $0.font = UIFont(name: "Pretendard-Regular", size: 14)
+        $0.backgroundColor = .lightGrayCustom
+        $0.textAlignment = .center
+        $0.layer.cornerRadius = 100
+        $0.layer.masksToBounds = true
+//        $0.frame = CGRect(x: 0, y: 0, width: 42, height: 21)
+    }
+    
+    private let progressView = UIProgressView().then {
+        // progress 배경 색상
+        $0.trackTintColor = .grayCustom
+        // progress 진행 색상
+        $0.progressTintColor = .blueCustom
+        // progress 진행 정도
+        $0.progress = 0.3
+        $0.clipsToBounds = true
+        $0.layer.cornerRadius = 5
+        $0.clipsToBounds = true
+        $0.layer.sublayers![1].cornerRadius = 8 // progress 배경
+    }
+    
+    private let seStatusLabel = UILabel().then { $0.statusLabel(title: "Stars Earned", value: "0")}
+    
+    private let prStatusLabel = UILabel().then { $0.statusLabel(title: "PRs", value: "2")}
+    
+    private let issueStatusLabel = UILabel().then { $0.statusLabel(title: "Issues", value: "0")}
+    
+    private let commitStatusLabel = UILabel().then { $0.statusLabel(title: "Commits", value: "204")}
+    
+    private let cbStatusLabel = UILabel().then { $0.statusLabel(title: "Contributed to", value: "8")}
     
     private let listView = UIView().then {
         $0.backgroundColor = .white
+    }
+    
+    private let listTitle = UILabel().then {
+        $0.text = "인기 게시글"
+        $0.font = UIFont(name: "Pretendard-SemiBold", size: 20)
+    }
+    
+    private let listSubTitle = UILabel().then {
+        $0.text = "1주 동안의 인기글"
+        $0.font = UIFont(name: "Pretendard-SemiBold", size: 14)
+        $0.textColor = .grayCustom
     }
     
     override func viewDidLoad() {
@@ -71,8 +119,12 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
             labelView.addSubview($0)
         }
         
-        [profileImg].forEach {
+        [profileImg, nameLabel, levelLabel, self.progressView, seStatusLabel, prStatusLabel, issueStatusLabel, commitStatusLabel, cbStatusLabel].forEach {
             profileView.addSubview($0)
+        }
+        
+        [listTitle, listSubTitle].forEach {
+            listView.addSubview($0)
         }
     }
     
@@ -119,6 +171,25 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
             $0.top.equalTo(profileView).offset(32)
             $0.left.equalTo(profileView).offset(20)
         }
+        
+        nameLabel.snp.makeConstraints {
+            $0.top.equalTo(profileView).offset(36)
+            $0.leading.equalTo(profileView).offset(78)
+        }
+        
+        levelLabel.snp.makeConstraints {
+            $0.top.equalTo(profileView.snp.top).offset(36)
+            $0.left.equalTo(profileImg.snp.right).offset(60)
+        }
+        
+        progressView.snp.makeConstraints {
+            $0.top.equalTo(nameLabel.snp.bottom).offset(8)
+            $0.left.equalTo(profileImg.snp.right).offset(10)
+            $0.right.equalTo(profileView.snp.right).inset(20)
+            $0.height.equalTo(8)
+        }
+        
+        
         
         listView.snp.makeConstraints {
             $0.top.equalTo(profileView.snp.bottom).offset(12)

@@ -109,7 +109,7 @@
 			children = (
 				9BC6BF762A2E094700AE73E8 /* App */,
 				9B8D3E882A1F805C00C378EF /* Presentation */,
-				9B8D3E4829FED54900C378EF /* Utility */,
+				9B8D3E4829FED54900C378EF /* Resources */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -138,14 +138,14 @@
 			path = SignupVC;
 			sourceTree = "<group>";
 		};
-		9B8D3E4829FED54900C378EF /* Utility */ = {
+		9B8D3E4829FED54900C378EF /* Resources */ = {
 			isa = PBXGroup;
 			children = (
 				9B8D3E672A06534600C378EF /* Font */,
 				9B8D3E4929FED55300C378EF /* Extension */,
 				9B8D3E3F29FECEBE00C378EF /* Base */,
 			);
-			path = Utility;
+			path = Resources;
 			sourceTree = "<group>";
 		};
 		9B8D3E4929FED55300C378EF /* Extension */ = {
