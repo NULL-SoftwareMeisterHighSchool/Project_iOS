@@ -45,13 +45,14 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
     }
 
     private let levelLabel = UILabel().then {
+        
         $0.text = "A+"
         $0.textColor = .blueCustom
         $0.font = UIFont(name: "Pretendard-Regular", size: 14)
         $0.backgroundColor = .lightGrayCustom
         $0.textAlignment = .center
-        $0.layer.cornerRadius = 100
-        $0.layer.masksToBounds = true
+        $0.layer.cornerRadius = 8
+        $0.layer.masksToBounds = true  // 요소가 빠져나가지 않게 하는 요소
 //        $0.frame = CGRect(x: 0, y: 0, width: 42, height: 21)
     }
     
@@ -68,15 +69,20 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
         $0.layer.sublayers![1].cornerRadius = 8 // progress 배경
     }
     
-    private let seStatusLabel = UILabel().then { $0.statusLabel(title: "Stars Earned", value: "0")}
+    private let seStatusLabel = UILabel().then { $0.statusTitleLabel(title: "Stars Earned")}
+    private let seStatusVLabel = UILabel().then { $0.statusValueLabel(value: "0")}
     
-    private let prStatusLabel = UILabel().then { $0.statusLabel(title: "PRs", value: "2")}
+    private let prStatusLabel = UILabel().then { $0.statusTitleLabel(title: "PRs")}
+    private let prStatusVLabel = UILabel().then { $0.statusValueLabel(value: "2")}
     
-    private let issueStatusLabel = UILabel().then { $0.statusLabel(title: "Issues", value: "0")}
+    private let issueStatusLabel = UILabel().then { $0.statusTitleLabel(title: "Issues")}
+    private let issueStatusVLabel = UILabel().then { $0.statusValueLabel(value: "0")}
     
-    private let commitStatusLabel = UILabel().then { $0.statusLabel(title: "Commits", value: "204")}
+    private let commitStatusLabel = UILabel().then { $0.statusTitleLabel(title: "Commits")}
+    private let commitStatusVLabel = UILabel().then { $0.statusValueLabel(value: "204")}
     
-    private let cbStatusLabel = UILabel().then { $0.statusLabel(title: "Contributed to", value: "8")}
+    private let cbStatusLabel = UILabel().then { $0.statusTitleLabel(title: "Contributed to")}
+    private let cbStatusVLabel = UILabel().then { $0.statusValueLabel(value: "8")}
     
     private let listView = UIView().then {
         $0.backgroundColor = .white
@@ -119,7 +125,7 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
             labelView.addSubview($0)
         }
         
-        [profileImg, nameLabel, levelLabel, self.progressView, seStatusLabel, prStatusLabel, issueStatusLabel, commitStatusLabel, cbStatusLabel].forEach {
+        [profileImg, nameLabel, levelLabel, self.progressView, seStatusLabel, seStatusVLabel, prStatusLabel, prStatusVLabel, issueStatusLabel, issueStatusVLabel, commitStatusLabel, commitStatusVLabel, cbStatusLabel, cbStatusVLabel].forEach {
             profileView.addSubview($0)
         }
         
@@ -189,7 +195,55 @@ class HomeViewController: BaseViewController, UITableViewDataSource, UITableView
             $0.height.equalTo(8)
         }
         
+        seStatusLabel.snp.makeConstraints {
+            $0.top.equalTo(profileView).offset(116)
+            $0.left.equalTo(profileView).offset(40)
+        }
         
+        seStatusVLabel.snp.makeConstraints {
+            $0.top.equalTo(profileView).offset(116)
+            $0.right.equalTo(commitStatusLabel.snp.left).offset(-48)
+        }
+        
+        prStatusLabel.snp.makeConstraints {
+            $0.top.equalTo(profileView).offset(148)
+            $0.left.equalTo(profileView).offset(40)
+        }
+        
+        prStatusVLabel.snp.makeConstraints {
+            $0.top.equalTo(profileView).offset(148)
+            $0.right.equalTo(cbStatusLabel.snp.left).offset(-48)
+        }
+        
+        issueStatusLabel.snp.makeConstraints {
+            $0.top.equalTo(profileView).offset(180)
+            $0.left.equalTo(profileView).offset(40)
+        }
+        
+        issueStatusVLabel.snp.makeConstraints {
+            $0.top.equalTo(profileView).offset(180)
+            $0.right.equalTo(profileView).inset(220)
+        }
+        
+        commitStatusLabel.snp.makeConstraints {
+            $0.top.equalTo(profileView).offset(116)
+            $0.left.equalTo(profileView).offset(220)
+        }
+        
+        commitStatusVLabel.snp.makeConstraints {
+            $0.top.equalTo(profileView).offset(116)
+            $0.right.equalTo(profileView).inset(40)
+        }
+        
+        cbStatusLabel.snp.makeConstraints {
+            $0.top.equalTo(profileView).offset(148)
+            $0.left.equalTo(profileView).offset(220)
+        }
+        
+        cbStatusVLabel.snp.makeConstraints {
+            $0.top.equalTo(profileView).offset(148)
+            $0.right.equalTo(profileView).inset(40)
+        }
         
         listView.snp.makeConstraints {
             $0.top.equalTo(profileView.snp.bottom).offset(12)
